@@ -56,8 +56,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (cr && main) {
         main.addEventListener("mousemove", function(details) {
-            cr.style.left = details.clientX + "px";
-            cr.style.top = details.clientY + "px";
+            window.requestAnimationFrame(() => {
+                cr.style.left = details.clientX + "px";
+                cr.style.top = details.clientY + "px";
+            });
         });
     } else {
         console.error("Cursor or main element not found!");
