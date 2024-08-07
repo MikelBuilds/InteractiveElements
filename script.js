@@ -49,3 +49,17 @@ s4.addEventListener("mouseenter", function() {
 s4.addEventListener("mouseleave", function() {
     s4.innerHTML = "<h1>4</h1>";
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    let cr = document.getElementById("cursor");
+    let main = document.getElementById("main");
+
+    if (cr && main) {
+        main.addEventListener("mousemove", function(details) {
+            cr.style.left = details.clientX + "px";
+            cr.style.top = details.clientY + "px";
+        });
+    } else {
+        console.error("Cursor or main element not found!");
+    }
+});
